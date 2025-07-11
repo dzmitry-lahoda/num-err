@@ -32,3 +32,8 @@ pub enum MathErrors {
 `arbitrary1` - `arbitrary`
 
 `arbitrary-int1` - `arbitrary-int` `u2`
+
+
+## Inspired
+
+- https://docs.rs/sp-arithmetic/latest/sp_arithmetic/enum.ArithmeticError.html
