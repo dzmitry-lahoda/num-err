@@ -1,0 +1,46 @@
+[package]
+name = "num-err"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+borsh1 = { version = ">=1.5,<2.0", package = "borsh", optional = true, default-features = true }
+parity-scale-codec3 = { version = "3", package = "parity-scale-codec", optional = true, default-features = true }
+serde1 = { version = "1", package = "serde", optional = true, default-features = true }
+schemars1 = { version = "1", package = "schemars", optional = true, default-features = true }
+proptest1 = { version = "1", package = "proptest", optional = true, default-features = true }
+arbitrary1 = { version = "1", package = "arbitrary", optional = true, default-features = true }
+protobuf3 = { version = "3", package = "protobuf", optional = true, default-features = true }
+arbitrary-int1 = { version = "1", package = "arbitrary-int", optional = true, default-features = false }
+
+[features]
+default = [
+    "serde1",
+    "borsh1",
+    "protobuf3",
+    "parity-scale-codec3",
+    "schemars1",
+    "alloc",
+    "borsh1_unstable__schema",
+    "proptest1",
+    "arbitrary-int1",
+    "arbitrary1"
+]
+
+alloc = []
+
+parity-scale-codec3 = ["dep:parity-scale-codec3"]
+
+
+borsh1 = ["dep:borsh1"]
+borsh1_unstable__schema = ["borsh1/unstable__schema", "borsh1", "alloc"]
+
+protobuf3 = ["dep:protobuf3"]
+
+serde1 = ["dep:serde1"]
+schemars1 = ["dep:schemars1", "serde1", "alloc"]
+
+arbitrary-int1 = ["dep:arbitrary-int1"]
+
+arbitrary1 = ["dep:arbitrary1"]
+proptest1 = ["dep:proptest1"]
