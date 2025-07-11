@@ -25,7 +25,10 @@
 
       packages.${system}.check = pkgs.writeShellApplication {
         name = "check";
-
+        runtimeInputs = with pkgs; [
+          rust-bin.stable.latest.default
+          cargo-hack
+        ];
         text = ''
           cargo hack check --feature-powerset --no-dev-deps
           cargo hack test --each-feature

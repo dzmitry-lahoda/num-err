@@ -14,18 +14,7 @@ protobuf3 = { version = "3", package = "protobuf", optional = true, default-feat
 arbitrary-int1 = { version = "1", package = "arbitrary-int", optional = true, default-features = false }
 
 [features]
-default = [
-    "serde1",
-    "borsh1",
-    "protobuf3",
-    "parity-scale-codec3",
-    "schemars1",
-    "alloc",
-    "borsh1_unstable__schema",
-    "proptest1",
-    "arbitrary-int1",
-    "arbitrary1"
-]
+default = []
 
 alloc = []
 

@@ -25,49 +25,49 @@ pub struct MathErrorsUnderflow;
 pub struct MathErrorsDivisionByZero;
 
 impl From<MathErrorsInvalidInput> for MathError {
-    fn from(val: MathErrorsInvalidInput) -> Self {
+    fn from(_: MathErrorsInvalidInput) -> Self {
         MathError
     }
 }
 
 impl From<MathErrorsInvalidInput> for MathErrors {
-    fn from(val: MathErrorsInvalidInput) -> Self {
+    fn from(_: MathErrorsInvalidInput) -> Self {
         MathErrors::InvalidInput
     }
 }
 
 impl From<MathErrorsOverflow> for MathErrors {
-    fn from(val: MathErrorsOverflow) -> Self {
+    fn from(_: MathErrorsOverflow) -> Self {
         MathErrors::Overflow
     }
 }
 
 impl From<MathErrorsUnderflow> for MathErrors {
-    fn from(val: MathErrorsUnderflow) -> Self {
+    fn from(_: MathErrorsUnderflow) -> Self {
         MathErrors::Underflow
     }
 }
 
 impl From<MathErrorsDivisionByZero> for MathErrors {
-    fn from(val: MathErrorsDivisionByZero) -> Self {
+    fn from(_: MathErrorsDivisionByZero) -> Self {
         MathErrors::DivisionByZero
     }
 }
 
 impl From<MathErrorsOverflow> for MathError {
-    fn from(val: MathErrorsOverflow) -> Self {
+    fn from(_: MathErrorsOverflow) -> Self {
         MathError
     }
 }
 
 impl From<MathErrorsUnderflow> for MathError {
-    fn from(val: MathErrorsUnderflow) -> Self {
+    fn from(_: MathErrorsUnderflow) -> Self {
         MathError
     }
 }
 
 impl From<MathErrorsDivisionByZero> for MathError {
-    fn from(val: MathErrorsDivisionByZero) -> Self {
+    fn from(_: MathErrorsDivisionByZero) -> Self {
         MathError
     }
 }
@@ -279,6 +279,86 @@ mod borsh1 {
             schema::{Definition, Fields},
             BorshSchema,
         };
+        impl BorshSchema for MathErrorsInvalidInput {
+            fn add_definitions_recursively(
+                definitions: &mut alloc::collections::btree_map::BTreeMap<
+                    borsh1::schema::Declaration,
+                    Definition,
+                >,
+            ) {
+                definitions.insert(
+                    Self::declaration(),
+                    Definition::Struct {
+                        fields: Fields::Empty,
+                    },
+                );
+            }
+
+            fn declaration() -> borsh1::schema::Declaration {
+                "MathErrorsInvalidInput".to_string()
+            }
+        }
+
+        impl BorshSchema for MathErrorsOverflow {
+            fn add_definitions_recursively(
+                definitions: &mut alloc::collections::btree_map::BTreeMap<
+                    borsh1::schema::Declaration,
+                    Definition,
+                >,
+            ) {
+                definitions.insert(
+                    Self::declaration(),
+                    Definition::Struct {
+                        fields: Fields::Empty,
+                    },
+                );
+            }
+
+            fn declaration() -> borsh1::schema::Declaration {
+                "MathErrorsOverflow".to_string()
+            }
+        }
+
+        impl BorshSchema for MathErrorsUnderflow {
+            fn add_definitions_recursively(
+                definitions: &mut alloc::collections::btree_map::BTreeMap<
+                    borsh1::schema::Declaration,
+                    Definition,
+                >,
+            ) {
+                definitions.insert(
+                    Self::declaration(),
+                    Definition::Struct {
+                        fields: Fields::Empty,
+                    },
+                );
+            }
+
+            fn declaration() -> borsh1::schema::Declaration {
+                "MathErrorsUnderflow".to_string()
+            }
+        }
+
+        impl BorshSchema for MathErrorsDivisionByZero {
+            fn add_definitions_recursively(
+                definitions: &mut alloc::collections::btree_map::BTreeMap<
+                    borsh1::schema::Declaration,
+                    Definition,
+                >,
+            ) {
+                definitions.insert(
+                    Self::declaration(),
+                    Definition::Struct {
+                        fields: Fields::Empty,
+                    },
+                );
+            }
+
+            fn declaration() -> borsh1::schema::Declaration {
+                "MathErrorsDivisionByZero".to_string()
+            }
+        }
+
         impl BorshSchema for MathErrors {
             fn add_definitions_recursively(
                 definitions: &mut alloc::collections::btree_map::BTreeMap<
@@ -286,90 +366,10 @@ mod borsh1 {
                     borsh1::schema::Definition,
                 >,
             ) {
-                impl BorshSchema for MathErrorsInvalidInput {
-                    fn add_definitions_recursively(
-                        definitions: &mut alloc::collections::btree_map::BTreeMap<
-                            borsh1::schema::Declaration,
-                            Definition,
-                        >,
-                    ) {
-                        definitions.insert(
-                            Self::declaration(),
-                            Definition::Struct {
-                                fields: Fields::Empty,
-                            },
-                        );
-                    }
-
-                    fn declaration() -> borsh1::schema::Declaration {
-                        "MathErrorsInvalidInput".to_string()
-                    }
-                }
-
-                impl BorshSchema for MathErrorsOverflow {
-                    fn add_definitions_recursively(
-                        definitions: &mut alloc::collections::btree_map::BTreeMap<
-                            borsh1::schema::Declaration,
-                            Definition,
-                        >,
-                    ) {
-                        definitions.insert(
-                            Self::declaration(),
-                            Definition::Struct {
-                                fields: Fields::Empty,
-                            },
-                        );
-                    }
-
-                    fn declaration() -> borsh1::schema::Declaration {
-                        "MathErrorsOverflow".to_string()
-                    }
-                }
-
-                impl BorshSchema for MathErrorsUnderflow {
-                    fn add_definitions_recursively(
-                        definitions: &mut alloc::collections::btree_map::BTreeMap<
-                            borsh1::schema::Declaration,
-                            Definition,
-                        >,
-                    ) {
-                        definitions.insert(
-                            Self::declaration(),
-                            Definition::Struct {
-                                fields: Fields::Empty,
-                            },
-                        );
-                    }
-
-                    fn declaration() -> borsh1::schema::Declaration {
-                        "MathErrorsUnderflow".to_string()
-                    }
-                }
-
                 MathErrorsInvalidInput::add_definitions_recursively(definitions);
                 MathErrorsOverflow::add_definitions_recursively(definitions);
                 MathErrorsUnderflow::add_definitions_recursively(definitions);
                 MathErrorsDivisionByZero::add_definitions_recursively(definitions);
-
-                impl BorshSchema for MathErrorsDivisionByZero {
-                    fn add_definitions_recursively(
-                        definitions: &mut alloc::collections::btree_map::BTreeMap<
-                            borsh1::schema::Declaration,
-                            Definition,
-                        >,
-                    ) {
-                        definitions.insert(
-                            Self::declaration(),
-                            Definition::Struct {
-                                fields: Fields::Empty,
-                            },
-                        );
-                    }
-
-                    fn declaration() -> borsh1::schema::Declaration {
-                        "MathErrorsDivisionByZero".to_string()
-                    }
-                }
 
                 let definition = Definition::Enum {
                     tag_width: 1,
@@ -529,8 +529,7 @@ mod arbitrary_int1_impl {
                 0 => MathErrors::InvalidInput,
                 1 => MathErrors::Overflow,
                 2 => MathErrors::Underflow,
-                3 => MathErrors::DivisionByZero,
-                _ => unreachable!("u2 must be in range 0..=3"),
+                _ => MathErrors::DivisionByZero,                
             }
         }
 

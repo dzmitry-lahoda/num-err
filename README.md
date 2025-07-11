@@ -1,5 +1,6 @@
 # Bikeshedding
 
+around
 ```rust
 pub enum MathErrors {
     InvalidInput,
@@ -18,3 +19,16 @@ pub enum MathErrors {
 
 ## Features
 
+`serde1` - `serde`
+
+`borsh1` - `borsh`
+`borsh1_unstable__schema` - `borsh` schema
+
+`protobuf3` - `protobuf` 
+`parity-scale-codec3` - `parity-scale-codec` 
+`schemars1` - `schemars` JSON schema 
+
+`proptest1` - `proptest` strategy
+`arbitrary1` - `arbitrary`
+
+`arbitrary-int1` - `arbitrary-int` `u2`
