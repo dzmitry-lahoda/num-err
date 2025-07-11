@@ -35,3 +35,4 @@ arbitrary-int1 = ["dep:arbitrary-int1"]
 
 arbitrary1 = ["dep:arbitrary1"]
 proptest1 = ["dep:proptest1"]
+error = []

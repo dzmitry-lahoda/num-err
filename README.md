@@ -19,6 +19,8 @@ pub enum MathErrors {
 
 ## Features
 
+`default` - []
+
 `serde1` - `serde`
 
 `borsh1` - `borsh`
@@ -32,6 +34,8 @@ pub enum MathErrors {
 `arbitrary1` - `arbitrary`
 
 `arbitrary-int1` - `arbitrary-int` `u2`
+
+`error` - dummy(for now) `core::error::Error` trait
 
 
 ## Inspired

@@ -1,10 +1,18 @@
 #![doc = include_str!("../README.md")]
 #![no_std]
 #![cfg(feature = "alloc")]
+
+use core::fmt::Display;
 extern crate alloc;
 /// If you are lazy or because of performance did not  specified different cases.
 #[derive(Debug, Clone, Copy)]
 pub struct MathError;
+
+impl Display for MathError {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "MathError")
+    }
+}
 
 #[derive(Debug, Clone, PartialEq, Eq, Copy)]
 pub enum MathErrors {
@@ -17,13 +25,37 @@ pub enum MathErrors {
 #[derive(Debug, Clone, Copy)]
 pub struct MathErrorsInvalidInput;
 
+impl Display for MathErrorsInvalidInput {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "InvalidInput")
+    }
+}
+
 #[derive(Debug, Clone, Copy)]
 pub struct MathErrorsOverflow;
 
+impl Display for MathErrorsOverflow {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "Overflow")
+    }
+}
+
 #[derive(Debug, Clone, Copy)]
 pub struct MathErrorsUnderflow;
+
+impl Display for MathErrorsUnderflow {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "Underflow")
+    }
+}
 #[derive(Debug, Clone, Copy)]
 pub struct MathErrorsDivisionByZero;
+
+impl Display for MathErrorsDivisionByZero {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        write!(f, "DivisionByZero")
+    }
+}
 
 impl From<MathErrorsInvalidInput> for MathError {
     fn from(_: MathErrorsInvalidInput) -> Self {
@@ -530,7 +562,7 @@ mod arbitrary_int1_impl {
                 0 => MathErrors::InvalidInput,
                 1 => MathErrors::Overflow,
                 2 => MathErrors::Underflow,
-                _ => MathErrors::DivisionByZero,                
+                _ => MathErrors::DivisionByZero,
             }
         }
 
@@ -555,4 +587,21 @@ mod arbitrary_int1_impl {
             Self::from_u2(value)
         }
     }
+}
+
+#[cfg(feature = "error")]
+mod error_impl {
+    use super::*;
+    use core::error::Error;
+    impl Error for MathErrors {}
+
+    impl Error for MathError {}
+
+    impl Error for MathErrorsInvalidInput {}
+
+    impl Error for MathErrorsOverflow {}
+
+    impl Error for MathErrorsUnderflow {}
+
+    impl Error for MathErrorsDivisionByZero {}
 }
