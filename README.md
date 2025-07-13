@@ -19,23 +19,23 @@ pub enum MathErrors {
 
 ## Features
 
-`default` - []
+- `default` - []
 
-`serde1` - `serde`
+- `serde1- ` - `serde`
 
-`borsh1` - `borsh`
-`borsh1_unstable__schema` - `borsh` schema
+- `borsh1` - `borsh`
+- `borsh1_unstable__schema` - `borsh` schema
 
-`protobuf3` - `protobuf` 
-`parity-scale-codec3` - `parity-scale-codec` 
-`schemars1` - `schemars` JSON schema 
+- `protobuf3` - `protobuf` 
+- `parity-scale-codec3` - `parity-scale-codec` 
+- `schemars1` - `schemars` JSON schema 
 
-`proptest1` - `proptest` strategy
-`arbitrary1` - `arbitrary`
+- `proptest1` - `proptest` strategy
+- `arbitrary1` - `arbitrary`
 
-`arbitrary-int1` - `arbitrary-int` `u2`
+- `arbitrary-int1` - `arbitrary-int` `u2`
 
-`error` - dummy(for now) `core::error::Error` trait
+- `error` - dummy(for now) `core::error::Error` trait
 
 
 ## Inspired
