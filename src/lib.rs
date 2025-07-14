@@ -1,14 +1,13 @@
 #![doc = include_str!("../README.md")]
 #![no_std]
 #![cfg(feature = "alloc")]
-
-use core::fmt::Display;
 extern crate alloc;
+
 /// If you are lazy or because of performance did not  specified different cases.
 #[derive(Debug, Clone, Copy)]
 pub struct MathError;
 
-impl Display for MathError {
+impl core::fmt::Display for MathError {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "MathError")
     }
@@ -25,7 +24,7 @@ pub enum MathErrors {
 #[derive(Debug, Clone, Copy)]
 pub struct MathErrorsInvalidInput;
 
-impl Display for MathErrorsInvalidInput {
+impl core::fmt::Display for MathErrorsInvalidInput {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "InvalidInput")
     }
@@ -34,7 +33,7 @@ impl Display for MathErrorsInvalidInput {
 #[derive(Debug, Clone, Copy)]
 pub struct MathErrorsOverflow;
 
-impl Display for MathErrorsOverflow {
+impl core::fmt::Display for MathErrorsOverflow {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "Overflow")
     }
@@ -43,7 +42,7 @@ impl Display for MathErrorsOverflow {
 #[derive(Debug, Clone, Copy)]
 pub struct MathErrorsUnderflow;
 
-impl Display for MathErrorsUnderflow {
+impl core::fmt::Display for MathErrorsUnderflow {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "Underflow")
     }
@@ -51,7 +50,7 @@ impl Display for MathErrorsUnderflow {
 #[derive(Debug, Clone, Copy)]
 pub struct MathErrorsDivisionByZero;
 
-impl Display for MathErrorsDivisionByZero {
+impl core::fmt::Display for MathErrorsDivisionByZero {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         write!(f, "DivisionByZero")
     }
