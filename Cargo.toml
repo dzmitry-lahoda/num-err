@@ -2,7 +2,7 @@
 description = "Bikesheding the error type for num traits"
 license-file = "LICENSE.md"
 name = "num-err"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 
 [dependencies]
