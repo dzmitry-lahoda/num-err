@@ -181,6 +181,17 @@ impl From<MathErrors> for MathError {
     }
 }
 
+impl From<MathErrors> for core::num::IntErrorKind {
+    fn from(value: MathErrors) -> Self {
+        match value {
+            MathErrors::InvalidInput => Self::InvalidDigit,
+            MathErrors::Overflow => Self::PosOverflow,
+            MathErrors::Underflow => Self::NegOverflow,
+            MathErrors::DivisionByZero => Self::Zero,
+        }
+    }
+}
+
 impl core::str::FromStr for MathErrors {
     type Err = &'static str;
 
